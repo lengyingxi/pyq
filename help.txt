@@ -1,0 +1,21 @@
+[root@server pyq]# docker load -i pyq.tar
+[root@server pyq]# cat docker-compose.yaml 
+version: '3'
+volumes:
+  moments-data:
+
+services:
+  moments:
+    image: pengyouquan:1
+    environment:
+      JWT_KEY: "BbYS93dHHfIC1cQR8rI6"
+    ports:
+      - "8800:3000"
+    volumes:
+      - moments-data:/app/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+[root@server pyq]# 
+
+user:admin
+password:a123456
